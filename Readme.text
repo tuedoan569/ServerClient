@@ -1,0 +1,41 @@
+/**********************************************************************/
+/* Author:             Logan Atiyeh                                   */
+/* Major:              Information Technology                         */
+/* Creation Date:      11/16/2019                                     */
+/* Due Date:           11/30/2019                                     */
+/* Course:             CSC328 01                                      */
+/* Professor Name:     Dr. Frye                                       */
+/* Assignment:         Download Server Phrase 2                       */
+/* Parrner: 	       Brett Biever & Tue Doan	                      */
+/**********************************************************************/
+
+
+DESCRIPTION:
+The purpose of this project is to create a connection between a client and a server using a TCP connection. The client will receive hello message from the server, fulfill command(s) from the client, and send a bye message to the server when done. 
+
+COMPILE INFORMATION:
+         make (for both client and server)
+
+
+RUN INFORMATION:
+Follow the usage clause below to run the server:
+    ./server <optional portnumber>
+        -  The port number must be > 1024 and < 65535 to be considered valid.
+
+Follow the usage clause below to run the client:
+    ./client <hostname> <optional port number>
+        -  The port number must be > 1024 and < 65535 to be considered valid.
+        -  The host name and port number must be the same ones on which the 
+           server is running.
+
+           
+PROTOCOL INFORMATION:
+The protocol works as follows:
+    Send the size of the data first and the receiver sends back a boolean to 
+	indicate if the receiver gets all the data. Then send the actual data, 
+	the receiver will compare the previous size with the size of the data it 	received and send back a boolean to indicate if it has receive all the 		data. 
+
+
+KNOWN ISSUES:
+- If we have a server listening in an infinite loop and closes the server and re run it, we can't connect unless we log off and connect again. The problem is that it is not exiting the program gracefully.
+  
